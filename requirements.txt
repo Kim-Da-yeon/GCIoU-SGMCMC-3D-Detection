@@ -1,0 +1,25 @@
+# Core dependencies
+torch>=1.10.0
+torchvision>=0.11.0
+numpy>=1.19.0
+scipy>=1.5.0
+
+# 3D Detection
+spconv-cu111>=2.1.0
+numba>=0.53.0
+pyyaml
+easydict
+tensorboardX
+
+# Data processing
+opencv-python
+Pillow
+matplotlib
+
+# Point cloud processing
+open3d>=0.13.0
+
+# Utilities
+tqdm
+shapely
+fire
