@@ -234,7 +234,7 @@ dξ = (1/Q)(||r||² - dT)dt + √(2ϵT/Q)·dW_t
 ## 📧 연락처
 
 - **저자**: 김다연
-- **소속**: [Your Institution]
+- **소속**: [Korea University BigDataSceince]
 - **이메일**: dayun0405@gmail.com
 
 ## 📄 라이선스
