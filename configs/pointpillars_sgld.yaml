@@ -1,0 +1,34 @@
+# SGLD Optimizer Configuration for PointPillars + GCIoU
+
+MODEL:
+  NAME: PointPillar
+  BACKBONE_3D:
+    NAME: CT-Stack
+
+OPTIMIZATION:
+  OPTIMIZER: sgld
+  LR: 0.00035
+  WEIGHT_DECAY: 0.01
+  
+  # SGLD-specific parameters
+  TEMPERATURE: 1.0e-5  # Critical parameter - extremely sensitive
+  NOISE_SCALE: 1.0     # Scale of injected Gaussian noise
+
+  # Learning rate scheduler
+  LR_SCHEDULER: onecycle
+  PCT_START: 0.4
+  DIV_FACTOR: 10
+  DECAY_STEP_LIST: [35, 45]
+  LR_DECAY: 0.1
+  LR_CLIP: 0.0000001
+
+TRAIN:
+  BATCH_SIZE: 8
+  EPOCHS: 80
+  GRAD_NORM_CLIP: 10
+  
+LOSS:
+  NAME: GCIoU
+  CLS_WEIGHT: 2.0
+  LOC_WEIGHT: 0.2
+  DIR_WEIGHT: 1.0

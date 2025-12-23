@@ -1,0 +1,39 @@
+# Adam Optimizer Configuration for PointPillars + GCIoU
+
+MODEL:
+  NAME: PointPillar
+  BACKBONE_3D:
+    NAME: CT-Stack
+
+OPTIMIZATION:
+  OPTIMIZER: adam
+  LR: 0.00035
+  WEIGHT_DECAY: 0.01
+  MOMENTUM: 0.9
+  
+  # Adam-specific parameters
+  BETAS: [0.9, 0.999]
+  EPS: 1.0e-8
+  AMSGRAD: false
+
+  # Learning rate scheduler
+  LR_SCHEDULER: onecycle
+  MOMS: [0.85, 0.95]
+  PCT_START: 0.4
+  DIV_FACTOR: 10
+  DECAY_STEP_LIST: [35, 45]
+  LR_DECAY: 0.1
+  LR_CLIP: 0.0000001
+  LR_WARMUP: false
+  WARMUP_EPOCH: 1
+
+TRAIN:
+  BATCH_SIZE: 8
+  EPOCHS: 80
+  GRAD_NORM_CLIP: 10
+  
+LOSS:
+  NAME: GCIoU
+  CLS_WEIGHT: 2.0
+  LOC_WEIGHT: 0.2
+  DIR_WEIGHT: 1.0
